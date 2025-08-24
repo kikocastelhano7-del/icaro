@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JordanTur - Seu Guia na Chapada Diamantina</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Explore a Chapada Diamantina com Ícaro Jordan, guia de turismo local. Ofereço roteiros personalizados e seguros para trilhas, cachoeiras e o Vale do Pati.">
+    <meta name="keywords" content="guia chapada diamantina, turismo chapada diamantina, roteiros chapada diamantina, lençóis bahia, vale do pati, guia de trilha, ecoturismo">
+    <meta name="author" content="JordanTur">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.seusite.com.br/">
+    <meta property="og:title" content="JordanTur - Seu Guia na Chapada Diamantina">
+    <meta property="og:description" content="Explore a Chapada Diamantina com roteiros personalizados e seguros.">
+    <meta property="og:image" content="http://www.seusite.com.br/imagens/morros.jpg">
+
+<!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://www.seusite.com.br/">
+    <meta property="twitter:title" content="JordanTur - Seu Guia na Chapada Diamantina">
+    <meta property="twitter:description" content="Explore a Chapada Diamantina com roteiros personalizados e seguros.">
+    <meta property="twitter:image" content="http://www.seusite.com.br/imagens/morros.jpg">
+
+    <link rel="shortcut icon" href="imagens/favicon.png" type="image/x-icon">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Swiper.js for Carousel -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <style>
+        /* Estilos Personalizados */
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        /* A classe .font-display agora usa Montserrat para os títulos */
+        .font-display {
+            font-family: 'Montserrat', sans-serif;
+        }
+        /* Cores personalizadas para o Tailwind */
+        .bg-emerald-custom { background-color: #009B77; }
+        .text-emerald-custom { color: #009B77; }
+        .border-emerald-custom { border-color: #009B77; }
+        .hover\:bg-emerald-custom-dark:hover { background-color: #007A60; }
+        
+        .bg-turquoise-custom { background-color: #40E0D0; }
+        .text-turquoise-custom { color: #40E0D0; }
+        
+        .bg-gold-custom { background-color: #FFD700; }
+        .text-gold-custom { color: #FFD700; }
+        .hover\:bg-gold-custom-dark:hover { background-color: #E6C200; }
+
+        /* Animação para o botão do WhatsApp */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        .animate-pulse-slow {
+            animation: pulse 6s infinite;
+        }
+
+        /* Estilos do Lightbox (visualizador de imagens) */
+        .lightbox {
+            display: none; position: fixed; z-index: 1000;
+            left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center; align-items: center;
+        }
+        .lightbox-content { max-width: 90%; max-height: 80%; object-fit: contain; }
+        .lightbox-close {
+            position: absolute; top: 20px; right: 35px;
+            color: #fff; font-size: 40px; font-weight: bold; cursor: pointer;
+        }
+
+        /* Estilos do Carrossel Swiper */
+        .swiper-container {
+            width: 100%; padding-top: 20px; padding-bottom: 50px;
+        }
+        .swiper-slide {
+            display: flex; justify-content: center; align-items: center;
+        }
+        .swiper-button-next, .swiper-button-prev { color: #009B77; }
+        .swiper-pagination-bullet-active { background-color: #009B77; }
+
+        /* Estilos de Animação de Rolagem */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header & Menu Fixo -->
+    <header id="header" class="bg-white shadow-md fixed w-full top-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-8 py-0 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-emerald-custom font-display">
+                <img src="src/DesignLogo.png" alt="Logo"    width="120em">
+            </a>
+            
+
+            <div class="hidden md:flex space-x-8">
+    <!-- Link Sobre -->
+    <a href="#sobre" class="relative text-gray-800 hover:text-emerald-custom transition group">
+        Sobre
+        <span class="absolute -bottom-1 left-1 w-full h-0.5 bg-emerald-custom transform scale-x-0 group-hover:scale-x-100 transition-tranform duration-300 ease-out"></span>
+    </a>
+    <!-- Link Roteiros -->
+    <a href="#roteiros" class="relative text-gray-800 hover:text-emerald-custom transition group">
+        Roteiros
+        <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-emerald-custom transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"></span>
+    </a>
+    <!-- Link Galeria -->
+    <a href="#galeria" class="relative text-gray-800 hover:text-emerald-custom transition group">
+        Galeria
+        <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-emerald-custom transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"></span>
+    </a>
+    <!-- Link Depoimentos -->
+    <a href="#depoimentos" class="relative text-gray-800 hover:text-emerald-custom transition group">
+        Depoimentos
+        <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-emerald-custom transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"></span>
+    </a>
+    <!-- Link Contato -->
+    <a href="#contato" class="relative text-gray-800 hover:text-emerald-custom transition group">
+        Contato
+        <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-emerald-custom transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out"></span>
+    </a>
+</div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-800 focus:outline-none">
+                    <i class="fas fa-bars text-3xl"></i>
+                </button>
+            </div>
+        </nav>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2">
+            <a href="#sobre" class="block text-center py-2 text-gray-600 hover:bg-gray-100">Sobre</a>
+            <a href="#roteiros" class="block text-center py-2 text-gray-600 hover:bg-gray-100">Roteiros</a>
+            <a href="#galeria" class="block text-center py-2 text-gray-600 hover:bg-gray-100">Galeria</a>
+            <a href="#depoimentos" class="block text-center py-2 text-gray-600 hover:bg-gray-100">Depoimentos</a>
+            <a href="#contato" class="block text-center py-2 text-gray-600 hover:bg-gray-100">Contato</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Seção Home (Hero) -->
+        <section id="home" class="h-screen bg-cover bg-center flex items-center justify-center text-white " style="background-image: url('src/img-primary.jpg'); ">
+    <div class="bg-black bg-opacity-50 p-8 rounded-lg text-center fade-in-section">
+        <h1 class="text-5xl md:text-7xl font-bold font-display mb-4">Explore a Chapada Diamantina</h1>
+        <p class="text-lg md:text-2xl mb-8">Aventuras inesquecíveis com um guia local experiente.</p>
+        <!-- BOTÃO ATUALIZADO -->
+        <a href="#contato" class="bg-transparent border-2 border-[#007A60] text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-[#007A60] transition-all duration-300 ease-in-out active:scale-95 inline-block">
+            Planeje seu Passeio
+        </a>
+    </div>
+</section>
+
+
+        <!-- Seção Sobre -->
+        <section id="sobre" class="py-20 bg-white">
+            <div class="container mx-auto px-6 fade-in-section">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-4xl md:text-5xl font-bold font-display text-emerald-custom mb-8">Seu Guia Local, Jordan</h2>
+                        <p class="text-black-800 mb-3 text-base md:text-lg lg:text-xl " >Nascido e criado no coração da Chapada Diamantina, conheço cada trilha, cachoeira e segredo que este paraíso esconde. Minha paixão é compartilhar as belezas deste lugar, proporcionando experiências autênticas e seguras.</p>
+                        <p class="text-black-800 text-base md:text-lg lg:text-xl">Com cerca de 10 anos de experiência como guia credenciado, meu objetivo é transformar sua viagem em uma memória para toda a vida, cuidando de cada detalhe para que você apenas se preocupe em aproveitar.</p>
+                    </div>
+                    <div>
+                        <img src="https://placehold.co/600x400/009B77/FFFFFF?text=Jordan" alt="Guia Jordan na Chapada Diamantina" class="rounded-lg shadow-2xl w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Roteiros -->
+        <section id="roteiros" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6 text-center fade-in-section">
+                <h2 class="text-4xl md:text-5xl font-bold font-display text-emerald-custom mb-4 text-center ">Roteiros Personalizados</h2>
+                <p class="text-gray-600 mb-12 max-w-2xl mx-auto md:text-lg lg:text-xl">De trilhas leves a travessias desafiadoras, crio o roteiro perfeito para seu perfil de aventureiro.</p>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Roteiro 1 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
+                        <i class="fas fa-route text-turquoise-custom text-4xl mb-4"></i>
+                        <h3 class="text-2xl  font-bold mb-2">Vale do Pati</h3>
+                        <p class="text-gray-600 lg:text-lg">Considerado um dos trekkings mais bonitos do Brasil. Uma imersão completa na natureza exuberante da Chapada.</p>
+                    </div>
+                    <!-- Roteiro 2 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
+                        <i class="fas fa-water text-turquoise-custom text-4xl mb-4  "></i>
+                        <h3 class="text-2xl font-bold mb-2">Cachoeiras Incríveis</h3>
+                        <p class="text-gray-600 lg:text-lg">Um dia explorando as famosas cachoeiras da Fumaça, Buracão ou Encantada, com banhos refrescantes.</p>
+                    </div>
+                    <!-- Roteiro 3 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
+                     <i class="fas fa-gem text-turquoise-custom text-4xl mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">Poços e Grutas</h3>
+                    <p class="text-gray-600 lg:text-lg">Descubra as águas cristalinas do Poço Azul e Poço Encantado, um espetáculo de luz e cor.</p>
+            </div>
+                </div>
+            </div>
+        </section>
+
+       <section id="galeria" class="py-20 bg-white ">
+        <div class="container mx-auto px-6 text-center fade-in-section">
+            <h2 class=" text-4xl md:text-5xl font-bold font-display text-emerald-custom mb-12">Galeria</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4" >
+            <!-- Imagens com classes padronizadas para corrigir a quebra de layout -->
+            <img src="src/img-8.jpg" alt="Paisagem 1" class="gallery-item rounded-lg shadow-md cursor-pointer grayscale hover:grayscale-0 transform hover:scale-105 transition-all duration-300 w-full h-64 object-cover">
+            <img src="src/img-1.jpg" alt="Paisagem " class="gallery-item rounded-lg shadow-md cursor-pointer grayscale hover:grayscale-0 transform hover:scale-105 transition-all duration-300 w-full h-64 object-cover">
+            <img src="src/img-2.jpg" alt="Paisagem " class="gallery-item rounded-lg shadow-md cursor-pointer grayscale hover:grayscale-0 transform hover:scale-105 transition-all duration-300 w-full h-64 object-cover">
+            <img src="src/img-3.jpg" alt="Paisagem " class="gallery-item rounded-lg shadow-md cursor-pointer grayscale hover:grayscale-0 transform hover:scale-105 transition-all duration-300 w-full h-64 object-cover">
+            <img src="src/img-4.jpg" alt="Paisagem " class="gallery-item rounded-lg shadow-md cursor-pointer grayscale hover:grayscale-0 transform hover:scale-105 transition-all duration-300 w-full h-64 object-cover">
+            <img src="src/img-5.jpg" alt="Paisagem " class="gallery-item rounded-lg shadow-md cursor-pointer grayscale hover:grayscale-0 transform hover:scale-105 transition-all duration-300 w-full h-64 object-cover">
+            <img src="src/img-6.jpg" alt="Paisagem " class="gallery-item rounded-lg shadow-md cursor-pointer grayscale hover:grayscale-0 transform hover:scale-105 transition-all duration-300 w-full h-64 object-cover">
+            <img src="src/img-7.jpg" alt="Paisagem " class="gallery-item rounded-lg shadow-md cursor-pointer grayscale hover:grayscale-0 transform hover:scale-105 transition-all duration-300 w-full h-64 object-cover">
+        </div>
+        </div>
+        </section>
+
+        <!-- Seção Depoimentos -->
+        <section id="depoimentos" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6 fade-in-section">
+                <h2 class="text-4xl md:text-5xl font-bold font-display text-center text-emerald-custom mb-12">O que os Viajantes Dizem</h2>
+                <!-- Swiper -->
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <!-- Depoimento 1 -->
+                        <div class="swiper-slide">
+                            <div class="bg-white p-8 rounded-lg shadow-lg max-w-2xl mx-auto text-center">
+                                <p class="text-gray-600 italic mb-4">"A experiência com o Jordan foi incrível! Ele conhece tudo da região e nos levou a lugares que nunca encontraríamos sozinhos. Recomendo demais!"</p>
+                                <p class="font-bold text-emerald-custom">- Maria S., São Paulo</p>
+                            </div>
+                        </div>
+                        <!-- Depoimento 2 -->
+                        <div class="swiper-slide">
+                            <div class="bg-white p-8 rounded-lg shadow-lg max-w-2xl mx-auto text-center">
+                                <p class="text-gray-600 italic mb-4">"Melhor guia da Chapada! Atencioso, profissional e super gente boa. Fez nossa viagem ser perfeita e segura."</p>
+                                <p class="font-bold text-emerald-custom">- João P., Rio de Janeiro</p>
+                            </div>
+                        </div>
+                         <!-- Depoimento 3 -->
+                        <div class="swiper-slide">
+                            <div class="bg-white p-8 rounded-lg shadow-lg max-w-2xl mx-auto text-center">
+                                <p class="text-gray-600 italic mb-4">"Nunca imaginei que a Chapada fosse tão mágica. Graças ao Jordan, aproveitamos cada segundo. Voltaremos com certeza!"</p>
+                                <p class="font-bold text-emerald-custom">- Ana L., Belo Horizonte</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                    <!-- Add Navigation -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Contato -->
+        <section id="contato" class="py-20 bg-emerald-custom text-white">
+            <div class="container mx-auto px-6 text-center fade-in-section">
+                <h2 class="text-4xl font-bold font-display mb-4">Vamos Planejar sua Aventura?</h2>
+                <p class="text-lg md:text-lg mb-8 max-w-2xl mx-auto">Entre em contato para tirar suas dúvidas e montar um roteiro exclusivo para você.</p>
+                <a href="https://wa.me/5575998137026" target="_blank" class="bg-transparent border-2 text-gray-900 font-bold py-4 px-10  bg-transparent border-2 border-[#007A60] text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-[#007A60] transition-all duration-300 ease-in-out active:scale-95 inline-block text-xl hover:bg-gold-custom-dark transition-transform transform hover:scale-105 inline-block">
+                    <i class="fab fa-whatsapp mr-2 "></i> Falar com Jordan no WhatsApp
+                </a>
+            </div>
+        </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 JordanTur. Todos os direitos reservados.</p>
+            <p>Guiando suas aventuras na Chapada Diamantina.</p>
+        </div>
+    </footer>
+
+    <!-- Botão Flutuante do WhatsApp -->
+    
+        <a href="https://wa.me/5575998137026" target="_blank" class=" md:hidden fixed bottom-4 right-4 bg-green-500 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg z-40 transform  transition-transform duration-300 animate-pulse-slow opacity-75 hover:opacity-100 hover:scale-110">
+        <i class="fab fa-whatsapp fa-3x"></i>
+        </a>
+
+
+    <!-- Lightbox Container -->
+    <div id="lightbox" class="lightbox">
+        <span id="lightbox-close" class="lightbox-close">&times;</span>
+        <img id="lightbox-content" class="lightbox-content" src="" alt="Imagem em destaque">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- Lógica do Menu Mobile ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // --- Lógica para encolher o header ao rolar ---
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('py-1');
+                    header.classList.remove('py-3');
+                } else {
+                    header.classList.remove('py-1');
+                    header.classList.add('py-3');
+                }
+            });
+
+            // --- Lógica do Lightbox da Galeria ---
+            const lightbox = document.getElementById('lightbox');
+            const lightboxContent = document.getElementById('lightbox-content');
+            const lightboxClose = document.getElementById('lightbox-close');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    lightbox.style.display = 'flex';
+                    lightboxContent.src = item.src;
+                });
+            });
+
+            const closeLightbox = () => {
+                lightbox.style.display = 'none';
+            };
+            
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            // --- Inicialização do Swiper (Carrossel de Depoimentos) ---
+            new Swiper('.swiper-container', {
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+            });
+
+            // --- Animação de Fade-in ao rolar ---
+            const sections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1 
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
